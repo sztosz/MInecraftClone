@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a762637b-06e9-4065-80d7-e61edb4896b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Voxels.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Voxels.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" afterDir="false" />
     </list>
-    <disabled>
-      <disabled_changelists>
-        <list default="true" id="a762637b-06e9-4065-80d7-e61edb4896b7" name="Default Changelist" comment="">
-          <change afterPath="$PROJECT_DIR$/Assets/Textures/Krzyś.png" afterDir="false" />
-          <change afterPath="$PROJECT_DIR$/Assets/Textures/Krzyś.png.meta" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MinecraftClone/.idea/workspace.xml" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" afterDir="false" />
-        </list>
-      </disabled_changelists>
-      <disabled_trackers />
-    </disabled>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,13 +13,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/e6/ad6e3a6b/Func`4.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" />
       <option value="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/World.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" />
     </changedPaths>
   </component>
@@ -49,8 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -82,10 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608244386410</updated>
       <workItem from="1608244392777" duration="844000" />
-      <workItem from="1608371939094" duration="6664000" />
-      <workItem from="1608379192166" duration="693000" />
-      <workItem from="1608380233218" duration="2520000" />
-      <workItem from="1608382776669" duration="48000" />
+      <workItem from="1608371939094" duration="13812000" />
+      <workItem from="1608479418491" duration="308000" />
     </task>
     <servers />
   </component>
@@ -108,9 +92,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

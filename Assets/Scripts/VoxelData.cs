@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public static class VoxelData
 {
     public const int ChunkWidth = 5;
     public const int ChunkHeight = 5;
+
+    public const int TextureAtlasSizeInBlocks = 4;
+
+    public static float NormalizedBlockTextureSize => 1f / TextureAtlasSizeInBlocks;
 
     public static readonly Vector3[] VoxelVertices = new Vector3[8]
     {
@@ -28,7 +33,8 @@ public static class VoxelData
     };
 
     public static readonly int[,] VoxelTriangles = new int[6, 4]
-    {
+    {   
+        // Back, Front, Top, Bottom, Left, Right
         {0, 3, 1, 2}, // Back Face
         {5, 6, 4, 7}, // Front Face
         {3, 7, 2, 6}, // Top Face
