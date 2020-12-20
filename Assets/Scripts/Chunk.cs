@@ -25,13 +25,26 @@ public class Chunk : MonoBehaviour
     {
         for (var i = 0; i < 6; i++)
             if (!CheckVoxel(position + VoxelData.FaceChecks[i]))
-                for (var j = 0; j < 6; j++)
-                {
-                    _vertices.Add(VoxelData.VoxelVertices[VoxelData.VoxelTriangles[i, j]] + position);
-                    _triangles.Add(_vertexIndex);
-                    _uvs.Add(VoxelData.VoxelUvs[j]);
-                    _vertexIndex++;
-                }
+            {
+                _vertices.Add(position + VoxelData.VoxelVertices[VoxelData.VoxelTriangles[i, 0]]);
+                _vertices.Add(position + VoxelData.VoxelVertices[VoxelData.VoxelTriangles[i, 1]]);
+                _vertices.Add(position + VoxelData.VoxelVertices[VoxelData.VoxelTriangles[i, 2]]);
+                _vertices.Add(position + VoxelData.VoxelVertices[VoxelData.VoxelTriangles[i, 3]]);
+
+                _uvs.Add(VoxelData.VoxelUvs[0]);
+                _uvs.Add(VoxelData.VoxelUvs[1]);
+                _uvs.Add(VoxelData.VoxelUvs[2]);
+                _uvs.Add(VoxelData.VoxelUvs[3]);
+
+                _triangles.Add(_vertexIndex);
+                _triangles.Add(_vertexIndex + 1);
+                _triangles.Add(_vertexIndex + 2);
+                _triangles.Add(_vertexIndex + 2);
+                _triangles.Add(_vertexIndex + 1);
+                _triangles.Add(_vertexIndex + 3);
+
+                _vertexIndex += 4;
+            }
     }
 
     private void PopulateVoxelMap()
