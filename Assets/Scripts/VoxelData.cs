@@ -1,14 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class VoxelData
 {
     public const int ChunkWidth = 5;
     public const int ChunkHeight = 5;
+    public const int WorldLedgeInChunks = 10;
+    public static int WorldSizeInVoxels => WorldLedgeInChunks * WorldLedgeInChunks;
 
     public const int TextureAtlasSizeInBlocks = 4;
-
-    public static float NormalizedBlockTextureSize => 1f / TextureAtlasSizeInBlocks;
 
     public static readonly Vector3[] VoxelVertices = new Vector3[8]
     {
@@ -33,7 +32,7 @@ public static class VoxelData
     };
 
     public static readonly int[,] VoxelTriangles = new int[6, 4]
-    {   
+    {
         // Back, Front, Top, Bottom, Left, Right
         {0, 3, 1, 2}, // Back Face
         {5, 6, 4, 7}, // Front Face
@@ -50,4 +49,6 @@ public static class VoxelData
         new Vector2(1.0f, 0.0f),
         new Vector2(1.0f, 1.0f),
     };
+
+    public static float NormalizedBlockTextureSize => 1f / TextureAtlasSizeInBlocks;
 }
