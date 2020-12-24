@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Chunk
 {
+    private readonly GameObject _chunkObject;
     private readonly ChunkCoords _coords;
     private readonly MeshFilter _meshFilter;
 
@@ -10,10 +11,9 @@ public class Chunk
     private readonly List<Vector2> _uvs = new List<Vector2>();
     private readonly List<Vector3> _vertices = new List<Vector3>();
 
-    private readonly byte[,,] _voxelMap = new byte[VoxelData.ChunkHeight, VoxelData.ChunkHeight, VoxelData.ChunkWidth];
+    private readonly byte[,,] _voxelMap = new byte[VoxelData.ChunkWidth, VoxelData.ChunkHeight, VoxelData.ChunkWidth];
 
     private readonly World _world;
-    private readonly GameObject _chunkObject;
 
     private int _vertexIndex;
 
@@ -74,7 +74,7 @@ public class Chunk
         for (var y = 0; y < VoxelData.ChunkHeight; y++)
         for (var x = 0; x < VoxelData.ChunkWidth; x++)
         for (var z = 0; z < VoxelData.ChunkWidth; z++)
-            _voxelMap[x, y, z] = _world.GetVoxel(new Vector3(x, y, z));
+            _voxelMap[x, y, z] = _world.GetVoxel(new Vector3(x, y, z) + Position);
     }
 
     private void CreateMeshData()
@@ -82,14 +82,15 @@ public class Chunk
         for (var y = 0; y < VoxelData.ChunkHeight; y++)
         for (var x = 0; x < VoxelData.ChunkWidth; x++)
         for (var z = 0; z < VoxelData.ChunkWidth; z++)
+
             AddVoxelDataToChunk(new Vector3(x, y, z));
     }
 
     private static bool IsVoxelInChunk(int x, int y, int z)
     {
-        return x < 0 || x > VoxelData.ChunkWidth - 1 ||
-               y < 0 || y > VoxelData.ChunkHeight - 1 ||
-               z < 0 || z > VoxelData.ChunkWidth - 1;
+        return x >= 0 && x <= VoxelData.ChunkWidth - 1 &&
+               y >= 0 && y <= VoxelData.ChunkHeight - 1
+               && z >= 0 && z <= VoxelData.ChunkWidth - 1;
     }
 
     private bool CheckVoxel(Vector3 position)
@@ -97,8 +98,9 @@ public class Chunk
         var x = Mathf.FloorToInt(position.x);
         var y = Mathf.FloorToInt(position.y);
         var z = Mathf.FloorToInt(position.z);
-
-        return !IsVoxelInChunk(x, y, z) && _world.blockTypes[_voxelMap[x, y, z]].isSolid;
+        return IsVoxelInChunk(x, y, z)
+            ? _world.blockTypes[_voxelMap[x, y, z]].isSolid
+            : _world.blockTypes[_world.GetVoxel(position + Position)].isSolid;
     }
 
     private void CreateMesh()
@@ -112,7 +114,7 @@ public class Chunk
 
     private void AddTexure(int textureID)
     {
-        var y = textureID / (float)VoxelData.TextureAtlasSizeInBlocks;
+        float y = textureID / VoxelData.TextureAtlasSizeInBlocks;
         var x = textureID - y * VoxelData.TextureAtlasSizeInBlocks;
 
         x *= VoxelData.NormalizedBlockTextureSize;

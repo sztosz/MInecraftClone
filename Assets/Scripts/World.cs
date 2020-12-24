@@ -22,8 +22,12 @@ public class World : MonoBehaviour
 
     public byte GetVoxel(Vector3 position)
     {
-        if (position.y < 1) return 1;
-        if (position.y == VoxelData.ChunkHeight - 1) return 3;
+        if (IsVoxelInWorld(position))
+            return 0;
+        if (position.y < 1)
+            return 1;
+        if (position.y == VoxelData.ChunkHeight - 1)
+            return 3;
         return 2;
     }
 
@@ -34,15 +38,15 @@ public class World : MonoBehaviour
 
     private bool IsChunkInWorld(ChunkCoords coords)
     {
-        return coords.X >= 0 && coords.X < VoxelData.WorldLedgeInChunks - 1 && coords.Z >= 0 &&
-               coords.Z < VoxelData.WorldLedgeInChunks - 1;
+        return coords.X >= 0 && coords.X < VoxelData.WorldLedgeInChunks - 1 &&
+               coords.Z >= 0 && coords.Z < VoxelData.WorldLedgeInChunks - 1;
     }
 
-    private bool IsVoxelInWorld(Vector3 position)
+    private static bool IsVoxelInWorld(Vector3 position)
     {
-        return position.x > 0 && position.x < VoxelData.WorldSizeInVoxels - 1 &&
-               position.y > 0 && position.y < VoxelData.WorldSizeInVoxels - 1 &&
-               position.z > 0 && position.z < VoxelData.WorldSizeInVoxels - 1;
+        return position.x < 0 || position.x > VoxelData.WorldSizeInBlocks - 1 ||
+               position.y < 0 || position.y > VoxelData.ChunkHeight - 1 ||
+               position.z < 0 || position.z > VoxelData.WorldSizeInBlocks - 1;
     }
 }
 

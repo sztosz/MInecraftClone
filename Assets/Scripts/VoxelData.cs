@@ -5,7 +5,7 @@ public static class VoxelData
     public const int ChunkWidth = 5;
     public const int ChunkHeight = 5;
     public const int WorldLedgeInChunks = 10;
-    public static int WorldSizeInVoxels => WorldLedgeInChunks * WorldLedgeInChunks;
+    public static int WorldSizeInBlocks  => WorldLedgeInChunks * WorldLedgeInChunks;
 
     public const int TextureAtlasSizeInBlocks = 4;
 
