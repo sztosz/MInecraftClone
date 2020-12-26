@@ -4,10 +4,11 @@ public static class VoxelData
 {
     public const int ChunkWidth = 5;
     public const int ChunkHeight = 5;
-    public const int WorldLedgeInChunks = 10;
-    public static int WorldSizeInBlocks  => WorldLedgeInChunks * WorldLedgeInChunks;
+    public const int WorldLedgeSizeInChunks = 100;
 
     public const int TextureAtlasSizeInBlocks = 4;
+
+    public const int ViewDistanceInChunks = 5;
 
     public static readonly Vector3[] VoxelVertices = new Vector3[8]
     {
@@ -49,6 +50,8 @@ public static class VoxelData
         new Vector2(1.0f, 0.0f),
         new Vector2(1.0f, 1.0f),
     };
+
+    public static int WorldSizeInBlocks => WorldLedgeSizeInChunks * WorldLedgeSizeInChunks;
 
     public static float NormalizedBlockTextureSize => 1f / TextureAtlasSizeInBlocks;
 }

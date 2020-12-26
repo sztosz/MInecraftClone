@@ -4,7 +4,6 @@ using UnityEngine;
 public class Chunk
 {
     private readonly GameObject _chunkObject;
-    private readonly ChunkCoords _coords;
     private readonly MeshFilter _meshFilter;
 
     private readonly List<int> _triangles = new List<int>();
@@ -19,7 +18,6 @@ public class Chunk
 
     public Chunk(ChunkCoords coords, World world)
     {
-        _coords = coords;
         _world = world;
 
         _chunkObject = new GameObject();
@@ -29,8 +27,8 @@ public class Chunk
         meshRenderer.material = _world.material;
         _chunkObject.transform.SetParent(_world.transform);
         _chunkObject.transform.position =
-            new Vector3(_coords.X * VoxelData.ChunkWidth, 0f, _coords.Z * VoxelData.ChunkWidth);
-        _chunkObject.name = $"Chunk {_coords.X}, {coords.Z}";
+            new Vector3(coords.X * VoxelData.ChunkWidth, 0f, coords.Z * VoxelData.ChunkWidth);
+        _chunkObject.name = $"Chunk {coords.X}, {coords.Z}";
 
         PopulateVoxelMap();
         CreateMeshData();
@@ -43,7 +41,7 @@ public class Chunk
         set => _chunkObject.SetActive(value);
     }
 
-    public Vector3 Position => _chunkObject.transform.position;
+    private Vector3 Position => _chunkObject.transform.position;
 
     private void AddVoxelDataToChunk(Vector3 position)
     {
@@ -140,4 +138,11 @@ public class ChunkCoords
 
     public int X { get; }
     public int Z { get; }
+
+    public bool Equals(ChunkCoords other)
+    {
+        if (other == null)
+            return false;
+        return other.X == X && other.Z == Z;
+    }
 }
