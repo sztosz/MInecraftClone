@@ -72,7 +72,7 @@ public class Chunk
         for (var y = 0; y < VoxelData.ChunkHeight; y++)
         for (var x = 0; x < VoxelData.ChunkWidth; x++)
         for (var z = 0; z < VoxelData.ChunkWidth; z++)
-            _voxelMap[x, y, z] = _world.GetVoxel(new Vector3(x, y, z) + Position);
+            _voxelMap[x, y, z] = World.GetVoxel(new Vector3(x, y, z) + Position);
     }
 
     private void CreateMeshData()
@@ -98,7 +98,7 @@ public class Chunk
         var z = Mathf.FloorToInt(position.z);
         return IsVoxelInChunk(x, y, z)
             ? _world.blockTypes[_voxelMap[x, y, z]].isSolid
-            : _world.blockTypes[_world.GetVoxel(position + Position)].isSolid;
+            : _world.blockTypes[World.GetVoxel(position + Position)].isSolid;
     }
 
     private void CreateMesh()

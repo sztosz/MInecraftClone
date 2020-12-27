@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class World : MonoBehaviour
 {
+    public int seed;
+    
     public Transform player;
     public Vector3 spawnPosition;
     public Material material;
@@ -16,6 +19,7 @@ public class World : MonoBehaviour
 
     private void Start()
     {
+        Random.InitState(seed);
         GenerateWorld();
         _playerLastChunkCoords = GetChunkCoordsFromVector3(player.position);
     }
@@ -100,14 +104,21 @@ public class World : MonoBehaviour
         _activeCHunks.Add(coords);
     }
 
-    public byte GetVoxel(Vector3 position)
+    public static byte GetVoxel(Vector3 position)
     {
         if (IsVoxelInWorld(position))
             return 0;
         if (position.y < 1)
             return 1;
         if (position.y == VoxelData.ChunkHeight - 1)
-            return 3;
+        {
+            var tempNoise = Noise.Get2DPerlin(new Vector2(position.x, position.z), 0, 0.1f);
+            if (tempNoise < 0.5)
+                return 3;
+            else
+                return 5;
+
+        }
         return 2;
     }
 

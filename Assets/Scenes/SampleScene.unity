@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c128bef59cdbc149a917286e2de3ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 666
   player: {fileID: 963194228}
   spawnPosition: {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: d7e5e59cb2c53cf42a599959c1cd0ef5, type: 2}
@@ -194,6 +195,14 @@ MonoBehaviour:
     bottomFaceTexure: 15
     leftFaceTexure: 13
     rightFaceTexure: 13
+  - blockName: Sand
+    isSolid: 1
+    backFaceTexure: 10
+    frontFaceTexure: 10
+    topFaceTexure: 10
+    bottomFaceTexure: 10
+    leftFaceTexure: 10
+    rightFaceTexure: 10
 --- !u!4 &46745547
 Transform:
   m_ObjectHideFlags: 0
